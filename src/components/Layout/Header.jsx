@@ -65,33 +65,6 @@ const Header = () => {
                     <Link to="/" className="logo">
                         <h1>TaskMaster</h1>
                     </Link>
-
-                    <nav className="nav-menu">
-                        {isAuthenticated ? (
-                            <>
-                                <Link to="/tasks" className="nav-link">
-                                    My Tasks
-                                </Link>
-                                <div className="user-menu">
-                                    <span className="user-name">
-                                        Welcome, {user?.name || 'User'}
-                                    </span>
-                                    <button onClick={handleLogout} className="btn-logout">
-                                        Logout
-                                    </button>
-                                </div>
-                            </>
-                        ) : (
-                            <>
-                                <Link to="/login" className="nav-link">
-                                    Login
-                                </Link>
-                                <Link to="/register" className="nav-link">
-                                    Register
-                                </Link>
-                            </>
-                        )}
-                    </nav>
                     <div className="weather-display">
                         {loading && <p>Loading weather...</p>}
                         {error && <p>Error: {error}</p>}
@@ -110,6 +83,29 @@ const Header = () => {
                             </>
                         )}
                     </div>
+                    <nav className="nav-menu">
+                        {isAuthenticated ? (
+                            <>
+                                <Link to="/tasks" className="nav-link">
+                                    My Tasks
+                                </Link>
+                                <div className="user-menu">
+                                    <button onClick={handleLogout} className="btn-logout">
+                                        Logout
+                                    </button>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <Link to="/login" className="nav-link">
+                                    Login
+                                </Link>
+                                <Link to="/register" className="nav-link">
+                                    Register
+                                </Link>
+                            </>
+                        )}
+                    </nav>
                 </div>
             </div>
         </header>

@@ -1,11 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom'; // Import Link
+import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 
 // Layout Components
 import Header from './components/Layout/Header';
-import Footer from './components/Layout/Footer';
 
 // Auth Components
 import Login from './components/Auth/Login';
@@ -16,9 +15,6 @@ import ProtectedRoute from './components/Auth/ProtectedRoute';
 import TaskInput from './components/Tasks/TaskInput';
 import TaskList from './components/Tasks/TaskList';
 
-// Weather Component
-import WeatherWidget from './components/Weather/WeatherWidget';
-
 const TasksPage = () => {
   return (
     <div className="tasks-page">
@@ -27,9 +23,6 @@ const TasksPage = () => {
           <div className="tasks-main">
             <TaskInput />
             <TaskList />
-          </div>
-          <div className="tasks-sidebar">
-            <WeatherWidget />
           </div>
         </div>
       </div>
@@ -83,7 +76,6 @@ const App = () => {
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>
-          <Footer />
         </div>
       </Router>
     </Provider>
