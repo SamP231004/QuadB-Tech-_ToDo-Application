@@ -35,7 +35,7 @@ const HomePage = () => {
     <div className="home-page">
       <div className="container">
         <div className="home-content">
-          <h1>Welcome to TaskMaster</h1>
+          <h1>Welcome to TaskTrek</h1>
           <p>
             Your personal task management solution with weather integration
             to help you plan your outdoor activities more effectively.
