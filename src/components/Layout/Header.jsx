@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { logout } from '../../redux/actions/authActions';
 
+import logo from './logo.png';
+
 const Header = () => {
     const { isAuthenticated, user } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
@@ -63,7 +65,8 @@ const Header = () => {
             <div className="container">
                 <div className="header-content">
                     <Link to="/" className="logo">
-                        <h1>TaskMaster</h1>
+                        <img src={logo} alt="" />
+                        <h1>TaskTrek</h1>
                     </Link>
                     <div className="weather-display">
                         {loading && <p>Loading weather...</p>}

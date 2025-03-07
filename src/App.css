@@ -13,6 +13,8 @@ body {
   background: radial-gradient(circle at 80% 10%, #000369, #010003);
   line-height: 1.6;
   overflow: hidden;
+  height: 100vh;
+  width: 100vw;
 }
 
 /* ************************************************************************************************************************* */
@@ -38,6 +40,17 @@ body {
   flex-direction: column;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap:10px;
+}
+.logo img {
+  height: 25px;
+  width: 25px;
+  /* filter: invert(1); */
+}
+
 /* ************************************************************************************************************************* */
 
 .header-content {
@@ -59,14 +72,16 @@ body {
 /* ************************************************************************************************************************* */
 
 .tasks-main {
-  background-color: rgba(255, 255, 255);
+  /* background-color: rgba(255, 255, 255); */
+  /* background-color: red; */
+  color: white;
   border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
   width: 90vw;
   height: 80vh;
   overflow: scroll;
 }
+
 .tasks-main::-webkit-scrollbar {
   width: 0px;
 }
@@ -76,10 +91,12 @@ body {
 }
 
 .task-form {
-  background-color: #f5f7fa;
+  /* background-color: #f5f7fa; */
   padding: 1.5rem;
   border-radius: 8px;
 }
+
+/* ************************************************************************************************************************* */
 
 .task-list-container {
   position: relative;
@@ -90,7 +107,7 @@ body {
 }
 
 .task-item {
-  background-color: white;
+  /* background-color: white; */
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   padding: 1.5rem;
@@ -110,7 +127,7 @@ body {
 .task-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 1rem;
 }
 
@@ -135,6 +152,8 @@ body {
   color: white;
 }
 
+/* ************************************************************************************************************************* */
+
 .nav-menu {
   display: flex;
   align-items: center;
@@ -150,6 +169,8 @@ body {
   color: #6989b9;
 }
 
+/* ************************************************************************************************************************* */
+
 .user-menu {
   display: flex;
   align-items: center;
@@ -160,6 +181,8 @@ body {
   margin-right: 1rem;
   color: white;
 }
+
+/* ************************************************************************************************************************* */
 
 .btn-logout {
   background: transparent;
@@ -176,9 +199,9 @@ body {
 }
 
 .btn-primary {
-  background-color: #4a6fa5;
+  background-color: transparent;
+  border: 1px solid white;
   color: white;
-  border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 4px;
   font-weight: 500;
@@ -188,13 +211,8 @@ body {
 }
 
 .btn-primary:hover {
-  background-color: #3a5a8c;
+  box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.1);
   color: white;
-}
-
-.btn-primary:disabled {
-  background-color: #bdbdbd;
-  cursor: not-allowed;
 }
 
 .btn-secondary {
@@ -214,13 +232,15 @@ body {
   color: white;
 }
 
+/* ************************************************************************************************************************* */
+
 .form-group {
   margin-bottom: 1.5rem;
 }
 
 .form-row {
   display: flex;
-  gap: 1rem;
+  gap: 5rem;
   margin-bottom: 1.5rem;
 }
 
@@ -228,6 +248,8 @@ body {
   flex: 1;
   margin-bottom: 0;
 }
+
+/* ************************************************************************************************************************* */
 
 label {
   display: block;
@@ -240,11 +262,14 @@ textarea,
 select {
   width: 100%;
   padding: 0.75rem;
+  background-color: transparent;
+  border: 1px solid white;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
   font-family: inherit;
   font-size: 1rem;
   transition: border-color 0.3s ease;
+  color: white;
 }
 
 input:focus,
@@ -265,20 +290,38 @@ textarea {
   font-size: 0.9rem;
 }
 
+option {
+  color: black;
+  background-color: transparent;
+}
+
+/* ************************************************************************************************************************* */
+
 .auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 2rem 1rem;
+
 }
 
 .auth-card {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
+  /* background-color: white; */
+  border: 1px solid white;
+  color: white;
+  border-radius: 15px;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  padding: 1rem;
   width: 100%;
-  max-width: 500px;
+  max-width: 35vw;
+}
+
+.auth-card input {
+  width: 90%;
+}
+
+.auth-card h2 {
+  margin-top: 0;
 }
 
 .auth-form {
@@ -286,11 +329,13 @@ textarea {
 }
 
 .auth-footer {
-  margin-top: 1.5rem;
+  /* margin-top: 1.5rem; */
   text-align: center;
-  border-top: 1px solid #e0e0e0;
+  /* border-top: 1px solid #e0e0e0; */
   padding-top: 1.5rem;
 }
+
+/* ************************************************************************************************************************* */
 
 .link {
   color: #4a6fa5;
@@ -307,6 +352,9 @@ textarea {
   color: #666666;
 }
 
+
+/* ************************************************************************************************************************* */
+
 .tasks-page {
   padding: 1rem 0;
 }
@@ -317,8 +365,6 @@ textarea {
   gap: 2rem;
 }
 
-
-
 .no-tasks,
 .loading {
   text-align: center;
@@ -328,23 +374,23 @@ textarea {
 
 .task-filters {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 1rem;
+  /* flex-direction: column; */
+  gap: 3rem;
+  /* margin-top: 1rem; */
   padding: 1rem;
-  background-color: #f5f7fa;
+  /* background-color: #f5f7fa; */
+  background: transparent;
+  ;
   border-radius: 8px;
 }
 
-
+/* ************************************************************************************************************************* */
 
 .filter-group {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-
-
 
 .filter-label {
   font-weight: 500;
@@ -358,9 +404,9 @@ textarea {
 }
 
 .filter-btn {
-  background-color: white;
-  border: 1px solid #e0e0e0;
-  color: #333333;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
   padding: 0.5rem 0.75rem;
   border-radius: 4px;
   font-size: 0.9rem;
@@ -369,58 +415,42 @@ textarea {
 }
 
 .filter-btn:hover {
-  border-color: #4a6fa5;
+  box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.1);
 }
 
 .filter-btn.active {
-  background-color: #4a6fa5;
-  border-color: #4a6fa5;
-  color: white;
+  /* background-color: #4a6fa5; */
+  box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.1);
 }
 
 .filter-btn.priority-high {
-  border-color: #f44336;
-  color: #f44336;
+  border: 1px solid red;
+  color: red;
 }
 
 .filter-btn.priority-high.active {
-  background-color: #f44336;
-  color: white;
+  box-shadow: 0px 0px 10px 5px rgb(255, 0, 0, 0.5);
 }
 
 .filter-btn.priority-medium {
-  border-color: #ff9800;
-  color: #ff9800;
+  border: 1px solid yellow;
+  color: yellow;
 }
 
 .filter-btn.priority-medium.active {
-  background-color: #ff9800;
-  color: white;
+  box-shadow: 0px 0px 10px 5px rgba(255, 255, 0, 0.5)
 }
 
 .filter-btn.priority-low {
-  border-color: #4caf50;
-  color: #4caf50;
+  border: 1px solid green;
+  color: green
 }
 
 .filter-btn.priority-low.active {
-  background-color: #4caf50;
-  color: white;
+  box-shadow: 0px 0px 10px 5px rgba(0, 128, 0, 0.5)
 }
 
-
-
-.priority-high {
-  background-color: #f44336;
-}
-
-.priority-medium {
-  background-color: #ff9800;
-}
-
-.priority-low {
-  background-color: #4caf50;
-}
+/* ************************************************************************************************************************* */
 
 .task-description {
   margin-bottom: 1rem;
@@ -437,6 +467,8 @@ textarea {
   display: flex;
   gap: 0.5rem;
 }
+
+/* ************************************************************************************************************************* */
 
 .btn-edit,
 .btn-delete,
@@ -489,6 +521,8 @@ textarea {
   background-color: #333333;
 }
 
+/* ************************************************************************************************************************* */
+
 .completed-title {
   text-decoration: line-through;
   color: #666666;
@@ -496,6 +530,10 @@ textarea {
 
 .task-item.editing {
   border-left: 4px solid #2196f3;
+}
+
+.task-item h3 {
+  margin: 0;
 }
 
 .edit-form {
@@ -508,78 +546,4 @@ textarea {
   justify-content: flex-end;
 }
 
-/* .weather-widget {
-  background-color: white;
-  border-radius: 8px;
-  padding: 1.5rem;
-  overflow: hidden;
-} */
-
-/* .location-form {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.location-input {
-  flex: 1;
-}
-
-.btn-location {
-  background-color: #4a6fa5;
-  color: white;
-  border: none;
-  padding: 0.75rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.btn-location:hover {
-  background-color: #3a5a8c;
-} */
-
-/* .weather-loading,
-.weather-error {
-  text-align: center;
-  padding: 1rem 0;
-  color: #666666;
-}
-
-.weather-content {
-  position: relative;
-}
-
-.weather-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.weather-icon {
-  font-size: 2.5rem;
-  line-height: 1;
-}
-
-.weather-location {
-  font-weight: 500;
-  font-size: 1.1rem;
-}
-
-.weather-temp {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.weather-condition {
-  font-size: 0.9rem;
-  color: #666666;
-  text-transform: capitalize;
-}
-
-.weather-details {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-} */
+/* ************************************************************************************************************************* */
