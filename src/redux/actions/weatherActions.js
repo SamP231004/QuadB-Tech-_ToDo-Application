@@ -1,29 +1,17 @@
-export const fetchWeather = (location) => {
-    return async dispatch => {
-        dispatch({ type: 'FETCH_WEATHER_REQUEST' });
+export const FETCH_WEATHER_REQUEST = 'FETCH_WEATHER_REQUEST';
+export const FETCH_WEATHER_SUCCESS = 'FETCH_WEATHER_SUCCESS';
+export const FETCH_WEATHER_FAILURE = 'FETCH_WEATHER_FAILURE';
 
-        try {
-            // API key would normally be in environment variables
-            const apiKey = 'demo-api-key';
-            const response = await fetch(
-                `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${apiKey}`
-            );
+export const fetchWeatherRequest = () => ({
+    type: FETCH_WEATHER_REQUEST,
+});
 
-            if (!response.ok) {
-                throw new Error('Weather data not available');
-            }
+export const fetchWeatherSuccess = (weather) => ({
+    type: FETCH_WEATHER_SUCCESS,
+    payload: weather,
+});
 
-            const weatherData = await response.json();
-
-            dispatch({
-                type: 'FETCH_WEATHER_SUCCESS',
-                payload: weatherData
-            });
-        } catch (error) {
-            dispatch({
-                type: 'FETCH_WEATHER_FAILURE',
-                payload: error.message
-            });
-        }
-    };
-};
+export const fetchWeatherFailure = (error) => ({
+    type: FETCH_WEATHER_FAILURE,
+    payload: error,
+});

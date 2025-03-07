@@ -1,57 +1,49 @@
+// src/redux/reducers/taskReducer.js
+import {
+    FETCH_TASKS_REQUEST,
+    FETCH_TASKS_SUCCESS,
+    FETCH_TASKS_FAILURE,
+    ADD_TASK,
+    UPDATE_TASK,
+    DELETE_TASK,
+    SET_FILTER,
+    SET_PRIORITY_FILTER,
+} from '../actions/taskActions';
+
 const initialState = {
-    tasks: JSON.parse(localStorage.getItem('tasks')) || [],
+    tasks: [],
     loading: false,
     error: null,
-    filter: 'all', // all, completed, active
-    priorityFilter: 'all' // all, high, medium, low
+    filter: 'all',
+    priorityFilter: 'all',
 };
 
 const taskReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'FETCH_TASKS_REQUEST':
+        case FETCH_TASKS_REQUEST:
+            return { ...state, loading: true, error: null };
+        case FETCH_TASKS_SUCCESS:
+            return { ...state, loading: false, tasks: action.payload };
+        case FETCH_TASKS_FAILURE:
+            return { ...state, loading: false, error: action.payload };
+        case ADD_TASK:
+            return { ...state, tasks: [...state.tasks, action.payload] };
+        case UPDATE_TASK:
             return {
                 ...state,
-                loading: true
-            };
-        case 'FETCH_TASKS_SUCCESS':
-            return {
-                ...state,
-                tasks: action.payload,
-                loading: false
-            };
-        case 'FETCH_TASKS_FAILURE':
-            return {
-                ...state,
-                loading: false,
-                error: action.payload
-            };
-        case 'ADD_TASK':
-            return {
-                ...state,
-                tasks: [...state.tasks, action.payload]
-            };
-        case 'UPDATE_TASK':
-            return {
-                ...state,
-                tasks: state.tasks.map(task =>
+                tasks: state.tasks.map((task) =>
                     task.id === action.payload.id ? action.payload : task
-                )
+                ),
             };
-        case 'DELETE_TASK':
+        case DELETE_TASK:
             return {
                 ...state,
-                tasks: state.tasks.filter(task => task.id !== action.payload)
+                tasks: state.tasks.filter((task) => task.id !== action.payload),
             };
-        case 'SET_FILTER':
-            return {
-                ...state,
-                filter: action.payload
-            };
-        case 'SET_PRIORITY_FILTER':
-            return {
-                ...state,
-                priorityFilter: action.payload
-            };
+        case SET_FILTER:
+            return { ...state, filter: action.payload };
+        case SET_PRIORITY_FILTER:
+            return { ...state, priorityFilter: action.payload };
         default:
             return state;
     }

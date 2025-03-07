@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../redux/actions/authActions';
+import {
+    loginRequest,
+    loginSuccess,
+    loginFailure,
+} from '../../redux/actions/authActions';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -8,19 +12,28 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { loading, error } = useSelector(state => state.auth);
+    const { loading, error } = useSelector((state) => state.auth);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        dispatch(loginRequest()); // Dispatch request action
         try {
-            await dispatch(login({ email, password }));
-            navigate('/tasks');
-        } catch (error) {
-            // Error is handled in the reducer
-            console.error('Login failed:', error);
+            // Simulate login (replace with actual API call)
+            await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate delay
+            if (email === 'user@example.com' && password === 'password') {
+                const user = { email: email }; // Mock user data
+                dispatch(loginSuccess(user)); // Dispatch success action
+                navigate('/tasks');
+            } else {
+                dispatch(loginFailure('Invalid credentials')); // Dispatch failure action
+            }
+        } catch (err) {
+            dispatch(loginFailure(err.message)); // Dispatch failure action
+            console.error('Login failed:', err);
         }
     };
+
 
     return (
         <div className="auth-container">
