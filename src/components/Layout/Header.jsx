@@ -74,10 +74,10 @@ const Header = () => {
                         {weather && (
                             <>
                                 <p>
-                                    {weather.name}, {weather.sys.country}
+                                    {weather.name},{weather.sys.country}
                                 </p>
                                 <p>
-                                    {weather.main.temp}°C, {weather.weather[0].description}
+                                    {weather.main.temp}°C,{weather.weather[0].description}
                                 </p>
                                 <img
                                     src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
