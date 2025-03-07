@@ -12,14 +12,11 @@ const Register = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Simple validation
         if (password !== confirmPassword) {
             setError('Passwords do not match');
             return;
         }
 
-        // In a real app, we would send registration data to a backend
-        // For this demo, we'll just redirect to login
         alert('Registration successful! Please login with your new account.');
         navigate('/login');
     };

@@ -12,23 +12,22 @@ const TaskInput = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Validate form
         if (!title.trim()) {
             return;
         }
 
         const newTask = {
+            id: Date.now(),
             title,
             description,
             dueDate: dueDate || null,
             priority,
-            isOutdoor: false, // Default value, could be updated based on task description
-            completed: false
+            isOutdoor: false,
+            completed: false,
         };
 
         dispatch(addTask(newTask));
 
-        // Reset form
         setTitle('');
         setDescription('');
         setDueDate('');

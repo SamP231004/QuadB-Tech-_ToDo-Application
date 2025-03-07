@@ -1,12 +1,11 @@
-// src/redux/actions/taskActions.js
 export const FETCH_TASKS_REQUEST = 'FETCH_TASKS_REQUEST';
 export const FETCH_TASKS_SUCCESS = 'FETCH_TASKS_SUCCESS';
 export const FETCH_TASKS_FAILURE = 'FETCH_TASKS_FAILURE';
 export const ADD_TASK = 'ADD_TASK';
 export const UPDATE_TASK = 'UPDATE_TASK';
 export const DELETE_TASK = 'DELETE_TASK';
-export const SET_FILTER = 'SET_FILTER'; // Add SET_FILTER type
-export const SET_PRIORITY_FILTER = 'SET_PRIORITY_FILTER'; // Add SET_PRIORITY_FILTER type
+export const SET_FILTER = 'SET_FILTER';
+export const SET_PRIORITY_FILTER = 'SET_PRIORITY_FILTER';
 
 export const fetchTasksRequest = () => ({
     type: FETCH_TASKS_REQUEST,
@@ -37,12 +36,12 @@ export const deleteTask = (taskId) => ({
     payload: taskId,
 });
 
-export const setFilter = (filter) => ({ // Add setFilter action creator
+export const setFilter = (filter) => ({
     type: SET_FILTER,
     payload: filter,
 });
 
-export const setPriorityFilter = (priorityFilter) => ({ // Add setPriorityFilter action creator
+export const setPriorityFilter = (priorityFilter) => ({
     type: SET_PRIORITY_FILTER,
     payload: priorityFilter,
 });

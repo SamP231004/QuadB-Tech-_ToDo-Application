@@ -1,7 +1,6 @@
-// src/redux/store.js
-import { createStore } from 'redux'; // Removed applyMiddleware and thunk import
+import { createStore } from 'redux';
 import rootReducer from './reducers';
 
-const store = createStore(rootReducer); // Removed applyMiddleware
+const store = createStore(rootReducer);
 
 export default store;

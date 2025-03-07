@@ -17,19 +17,20 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        dispatch(loginRequest()); // Dispatch request action
+        dispatch(loginRequest());
         try {
-            // Simulate login (replace with actual API call)
-            await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate delay
+            await new Promise((resolve) => setTimeout(resolve, 1000));
             if (email === 'user@example.com' && password === 'password') {
-                const user = { email: email }; // Mock user data
-                dispatch(loginSuccess(user)); // Dispatch success action
+                const user = { email: email };
+                dispatch(loginSuccess(user));
                 navigate('/tasks');
-            } else {
-                dispatch(loginFailure('Invalid credentials')); // Dispatch failure action
             }
-        } catch (err) {
-            dispatch(loginFailure(err.message)); // Dispatch failure action
+            else {
+                dispatch(loginFailure('Invalid credentials'));
+            }
+        }
+        catch (err) {
+            dispatch(loginFailure(err.message));
             console.error('Login failed:', err);
         }
     };

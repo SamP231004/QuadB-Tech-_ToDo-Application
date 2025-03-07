@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'; // added useState
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchTasksRequest,
@@ -13,38 +13,33 @@ const TaskList = () => {
   const { tasks, loading, error, filter, priorityFilter } = useSelector(
     (state) => state.tasks
   );
-  const [apiTasks, setApiTasks] = useState([]); // added state for api tasks.
 
   useEffect(() => {
     const fetchTasksData = async () => {
       dispatch(fetchTasksRequest());
       try {
-        // Simulate API call (replace with actual API call)
         await new Promise((resolve) => setTimeout(resolve, 1000));
         const mockTasks = [
           { id: 1, text: 'Task 1', completed: false, priority: 'High' },
           { id: 2, text: 'Task 2', completed: true, priority: 'Medium' },
           { id: 3, text: 'Task 3', completed: false, priority: 'Low' },
         ];
-        setApiTasks(mockTasks);
         dispatch(fetchTasksSuccess(mockTasks));
-      } catch (err) {
+      }
+      catch (err) {
         dispatch(fetchTasksFailure(err.message));
       }
     };
     fetchTasksData();
   }, [dispatch]);
 
-  // Filter tasks based on current filter settings
   const getFilteredTasks = () => {
-    return apiTasks.filter((task) => {
-      // Status filter
+    return tasks.filter((task) => {
       const statusMatch =
         filter === 'all' ||
         (filter === 'completed' && task.completed) ||
         (filter === 'active' && !task.completed);
 
-      // Priority filter
       const priorityMatch =
         priorityFilter === 'all' || task.priority === priorityFilter;
 

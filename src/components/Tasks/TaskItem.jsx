@@ -48,13 +48,11 @@ const TaskItem = ({ task }) => {
         });
     };
 
-    // Format due date for display
     const formatDueDate = (dateString) => {
         if (!dateString) return 'No due date';
         return new Date(dateString).toLocaleDateString();
     };
 
-    // View mode
     if (!isEditing) {
         return (
             <div className={`task-item ${task.completed ? 'completed' : ''}`}>
@@ -97,7 +95,6 @@ const TaskItem = ({ task }) => {
         );
     }
 
-    // Edit mode
     return (
         <div className="task-item editing">
             <div className="edit-form">
